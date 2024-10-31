@@ -1,4 +1,4 @@
-package com.ssilvadev.screenmatch.principal;
+package com.ssilvadev.screenmatch.main;
 
 import com.ssilvadev.screenmatch.model.DataSeries;
 import com.ssilvadev.screenmatch.model.DadosTemporada;
@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-public class Principal {
+public class Main {
 
     private final Scanner scanner = new Scanner(System.in);
     private final ConsumptionApi api = new ConsumptionApi();
@@ -23,7 +23,7 @@ public class Principal {
 
     private final SeriesRepository repository;
 
-    public Principal(SeriesRepository repository) {
+    public Main(SeriesRepository repository) {
         this.repository = repository;
     }
 

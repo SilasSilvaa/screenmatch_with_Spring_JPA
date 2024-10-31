@@ -1,6 +1,6 @@
 package com.ssilvadev.screenmatch;
 
-import com.ssilvadev.screenmatch.principal.Principal;
+import com.ssilvadev.screenmatch.main.Main;
 import com.ssilvadev.screenmatch.repository.SeriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,7 +18,7 @@ public class ScreenmatchApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Principal principal = new Principal(repository);
-		principal.showMenu();
+		Main main = new Main(repository);
+		main.showMenu();
 	}
 }
