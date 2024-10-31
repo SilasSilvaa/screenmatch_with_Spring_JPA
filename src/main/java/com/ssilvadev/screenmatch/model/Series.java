@@ -12,17 +12,22 @@ public class Series {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true)
     private String title;
     private Integer totalSeason;
     private Double rating;
+
     @Enumerated(EnumType.STRING)
     private Catalog genre;
+
     private String actors;
     private String poster;
     private String plot;
 
     @Transient
     private List<Episodio> episodes = new ArrayList<>();
+
 
     public Series() {}
 
