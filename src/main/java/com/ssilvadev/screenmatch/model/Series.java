@@ -25,8 +25,8 @@ public class Series {
     private String poster;
     private String plot;
 
-    @Transient
-    private List<Episodio> episodes = new ArrayList<>();
+    @OneToMany(mappedBy = "series", cascade = CascadeType.ALL)
+    private List<Episodes> episodes = new ArrayList<>();
 
 
     public Series() {}
@@ -49,11 +49,12 @@ public class Series {
         this.id = id;
     }
 
-    public List<Episodio> getEpisodes() {
+    public List<Episodes> getEpisodes() {
         return episodes;
     }
 
-    public void setEpisodes(List<Episodio> episodes) {
+    public void setEpisodes(List<Episodes> episodes) {
+        episodes.forEach(e -> e.setSeries(this));
         this.episodes = episodes;
     }
 
