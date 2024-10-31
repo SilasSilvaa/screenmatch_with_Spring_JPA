@@ -1,7 +1,7 @@
 package com.ssilvadev.screenmatch.main;
 
 import com.ssilvadev.screenmatch.model.DataSeries;
-import com.ssilvadev.screenmatch.model.DadosTemporada;
+import com.ssilvadev.screenmatch.model.DataSeason;
 import com.ssilvadev.screenmatch.model.Series;
 import com.ssilvadev.screenmatch.repository.SeriesRepository;
 import com.ssilvadev.screenmatch.service.ConsumptionApi;
@@ -79,12 +79,12 @@ public class Main {
 
     private void searchEpByNamePerSeries(){
         DataSeries dataSeries = getDataSeries();
-        List<DadosTemporada> seasons = new ArrayList<>();
+        List<DataSeason> seasons = new ArrayList<>();
 
         for (int i = 1; i <= dataSeries.totalSeason(); i++) {
             var json = api.getData(ADDRESS + dataSeries.title().replace(" ", "+") + "&season=" + i + API_KEY);
-            DadosTemporada dataSeasons = convertData.getData(json, DadosTemporada.class);
-            seasons.add(dataSeasons);
+            DataSeason dataSeason = convertData.getData(json, DataSeason.class);
+            seasons.add(dataSeason);
         }
         seasons.forEach(System.out::println);
     }
