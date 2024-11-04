@@ -25,7 +25,7 @@ public class Series {
     private String poster;
     private String plot;
 
-    @OneToMany(mappedBy = "series", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "series", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Episodes> episodes = new ArrayList<>();
 
 
@@ -124,6 +124,7 @@ public class Series {
 
                         ", atores='" + actors + '\'' +
                         ", poster='" + poster + '\'' +
-                        ", sinopse='" + plot + '\'';
+                        ", sinopse='" + plot + '\'' +
+                        ", episodes='" + episodes + '\'';
     }
 }
